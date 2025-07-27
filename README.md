@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+2025-07-27
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 리액트를 다루는 기술(리덕스를 활용한 리엑트 애플리케이션 개발) 공부 및 정리
 
-## Available Scripts
+- 소규모 프로젝트 에서는 컴포넌트가 가진 state를 사용하는 것만으로도 충만하지만, 프로젝트의 규모가 커짐에 따라 상태 관리가 번거로워질 수 있다.
+- 리액트 애플리케이션에서 리덕스를 사용하면, 상태 업데이트에 관한 로직을 모듈로 따로 분리하여 컴포넌트 파일과 별개로 관리할 수 있으므로, 코드를 유지 보수하는데 도움이 된다.
+- 여러 컴포넌트에서 동일한 상태를 공유해야 할 때 매우 유용하며, 실제 업데이트가 필요한 컴포넌트만 리렌더링되도록 쉽게 최적화해 줄 수도 있다.
+- 리액트 애플리케이션에서 리덕스를 사용할 때는 store 인스턴스를 직접사용하기보다는, 주로 react-redux라는 라이브러리에서 제공하는 유틸함수와 컴포넌트를 사용하여 리덕스
+  관련 작업을 처리한다.
 
-In the project directory, you can run:
+\*\*\*\* 컨테이너 컴포넌트 - 리덕스 스토어
+|
+프레젠테이셔널 컴포넌트
 
-### `yarn start`
+- 프레젠테이셔널 컴포넌트는 주로 상태 관리가 이루어지지 않고, 그저 props를 받아와서 화면에 UI를 보여 주기만 하는 컴포넌트를 말한다.
+- 컨테이너 컴포넌트는 리덕스와 연동되어 있는 컴포넌트로, 리덕스로부터 상태를 받아 오기도 하고, 리덕스 스토어에 액션을 디스패치하기도 한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 리덕스를 사용할때는 액션 타입 - 액션 생성 함수 - 리듀서 코드를 작성해야 한다.
+  (이 코드들을 가각 다른 파일에 저장하는 방법도 있고, 기능별로 묶어서 파일 하나에 작성하는 방법도 있다.)
+- Ducks 패턴을 사용하여 액션 타입, 액션 생성 함수, 리듀서를 작성한 코드를 모듈(Modules)이라고 한다.
