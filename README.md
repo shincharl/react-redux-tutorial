@@ -41,3 +41,11 @@
 - 이렇게 함수를 만들어서 connect에서 반환해도 되고, 익명 함수를 만들어서 connect 함수 내에서 작성 해서 사용해도 된다.
 
 - 또는 리덕스 라이브러리에 있는 bindActionCreators를 사용하여 만들수 도 있고, 그냥 객체 자체 값으로 increase랑 decrease를 넘겨서 만들어도 만들 수 있다.
+
+2025-08-03
+
+- Todos 리덕스 적용 완료, redux-action을 사용하면 리덕스 사용 코드를 더 간단하게 줄일 수 있다.
+- 액션 생성 함수 변경 : createAction() 사용, 리듀서 메서드 변경 : handleAction() 사용
+- spread 연산자로 깊은 객체 까지 만들다 보면 생성이 될 수 있는데, immer 라이브러리를 사용하여 이를 해결할 수 있다.
+
+- produce(state, draft => {}) 형식으로 되어있는데, 실행했을때의 state를 복사해서 draft에 저장을 하고, 해당 draft를 state와 똑같이 사용할 수 있다.
